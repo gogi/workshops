@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
   has_many :reviews
 
   validates :description, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }
   validates :title, presence: true
+
 end
