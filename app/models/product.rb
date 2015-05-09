@@ -7,4 +7,11 @@ class Product < ActiveRecord::Base
   validates :price, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/ }
   validates :title, presence: true
 
+def average_rating
+    all_rates = []
+    reviews.each do |rate|
+      all_rates << rate.rating
+    end
+    all_rates.sum.to_f / all_rates.count.to_f
+  end
 end
