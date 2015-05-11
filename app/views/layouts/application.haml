@@ -17,7 +17,7 @@
           = link_to 'Categories', root_path
         %p.navbar-text.navbar-right
           - if user_signed_in?
-            = "Hello there #{current_user.firstname}!"
+            = link_to "Hello there #{current_user.firstname}!", user_path(current_user.id)
             = link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'btn'
           - else
             = link_to 'Sign in', new_user_session_path
