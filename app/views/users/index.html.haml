@@ -1,2 +1,18 @@
-%h1 Users#index
-%p Find me in app/views/users/index.html.haml
+%h1 
+  All users
+
+%table
+  %tr
+    %td
+      Name
+    %td
+      Lastname
+    %td
+  - users.each do |user|
+    %tr
+      %td
+        = user.firstname
+      %td
+        = user.lastname
+      %td
+        = link_to 'Show', user_path(user.id), class: 'btn btn-default'
