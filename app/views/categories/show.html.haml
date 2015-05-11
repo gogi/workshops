@@ -4,10 +4,21 @@
   %b Name:
   = category.name
 
-%p
+%table
+  %tr
+    %td
+      Product name
+    %td
+      Average rate
   - category.products.each do |product|
-    = link_to product.title, category_product_path(category.id, product.id)
-    %br
+    %tr
+      %td
+        = link_to product.title, category_product_path(category.id, product.id)
+      %td
+        = product.average_rating
+%br   
+%p
+  = link_to 'Check products with details!', category_products_path(category.id)
 
 %p
   %h3 New product
