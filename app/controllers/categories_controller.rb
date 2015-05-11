@@ -49,11 +49,10 @@ class CategoriesController < ApplicationController
 
   private
     def category_params
-      params.require(:category).permit(:name, :user)
+      params.require(:category).permit(:name)
     end
 
     def redirect_to_login
-      redirect_to new_user_session_path, unless current_user.admin?
+      redirect_to new_user_session_path unless current_user.admin?
     end
-  end
 end
