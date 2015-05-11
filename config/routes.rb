@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/index'
-
-  get 'users/show'
+  resources :users
 
   resources :categories do
     resources :products do
