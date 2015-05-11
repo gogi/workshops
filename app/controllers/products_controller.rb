@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
         render action: 'edit'
       end
     else
-      redirect_to category_product_url(category, product), alert: "You are not allowed to update product #{product.title}."
+      redirect_to category_product_url(category, product), notice: "You are not allowed to update product #{product.title}."
     end
   end
 
@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
       product.destroy
       redirect_to category_url(product.category), notice: 'Product was successfully destroyed.'
     else
-      redirect_to category_product_url(category, product), alert: "You are not allowed to destroy product #{product.title}."
+      redirect_to category_product_url(category, product), notice: "You are not allowed to destroy product #{product.title}."
     end
   end
 
