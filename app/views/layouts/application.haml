@@ -12,17 +12,24 @@
     %nav.navbar.navbar-default
       .container-fluid
         .navbar-header
-          %span.navbar-brand #{AppConfig.workshops_name}
-        %p.navbar-text.navbar-left
-          = link_to 'Categories', root_path
-        %p.navbar-text.navbar-right
-          - if user_signed_in?
-            = link_to "Hello there #{current_user.firstname}!", user_path(current_user.id)
-            = link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'btn'
-          - else
-            = link_to 'Sign in', new_user_session_path
-            \|
-            = link_to 'Sign up', new_user_registration_path
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          .navbar-brand
+            #{AppConfig.workshops_name}
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li= link_to 'Categories', root_path
+            %li= link_to 'All users', users_path
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li= link_to "Hello there #{current_user.firstname}!", user_path(current_user.id)
+              %li= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'btn'
+            - else
+              %li= link_to 'Sign in', new_user_session_path
+              %li= link_to 'Sign up', new_user_registration_path
     .container-fluid
       .row
         .col-lg-12

@@ -1,1 +1,14 @@
 @import "bootstrap";
+.navbar-default{
+  background-color: #9096A5;
+}
+
+.navbar-default
+  .navbar-brand{
+    color: #2F416B;
+  }
+
+.navbar-default 
+.navbar-nav > li > a{
+  color: #FBF2DF;
+}
