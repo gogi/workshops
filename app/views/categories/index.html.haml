@@ -6,19 +6,18 @@
     %th Category name
     %th Products
     %th
-    %th
-    %th
 
   - categories.each do |category|
     %tr
       %td= category.name
       %td
         %span.badge.glyphicon.glyphicon-play= "  #{category.products.count}"
-      %td= link_to 'Show', category, class: 'btn btn-default'
-      - if current_user.present? && current_user.admin?
-        %td= link_to 'Edit', edit_category_path(category)
-        %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+      %td.btn.btn-group
+        = link_to 'Show', category, class: 'btn btn-default'
+        - if current_user.present? && current_user.admin?
+          = link_to 'Edit', edit_category_path(category), class: 'btn btn-default'
+          = link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'
 
 %br
 - if current_user.present? && current_user.admin?
-  = link_to 'New Category', new_category_path
+  = link_to 'New Category', new_category_path, class: 'btn btn-primary'
