@@ -1,4 +1,10 @@
-%p= review.content
-%p
-  %b= review.rating
-  %em= review.author
+%p.h2.table_name Product reviews
+
+%table.table
+  %tr
+    %td
+      .blockquote
+        %p= review.content
+        .footer= "- #{review.author}"
+    %td
+      .glyphicon.glyphicon-star= " #{review.rating}"
