@@ -3,7 +3,7 @@
 %p
   %b.h3.table_name Product: #{category.name}
 
-%table.table.table-hover
+%table.table
   %tr.table-header
     %td
       Product
@@ -20,7 +20,7 @@
   - category.products.each do |product|
     %tr
       %td
-        = product.title
+        = link_to product.title, category_product_path(category.id, product.id)
       %td
         = product.description
       %td
