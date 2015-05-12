@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
 
   validates :firstname, presence: true
   validates :lastname, presence: true
+
+  def last_reviews
+    reviews.order(id: :desc).limit(5)
+  end
 end
