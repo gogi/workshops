@@ -1,14 +1,16 @@
-%h1
+%h1.table_name
   = "#{user.firstname}'s info"
 %p
-%table
-  %tr
+%table.table
+  %tr.table-header
     %td
       Name
     %td
       Lastname
     %td
       Email
+    %td
+      Total reviews
     %td
       Member since
   %tr
@@ -19,11 +21,14 @@
     %td
       = user.email
     %td
+      = user.reviews.count
+    %td
       = user.created_at.strftime("%d-%m-%y")
 
-%table
-  Recent activities
-  %tr
+%h2.table_name Most recent activities
+
+%table.table
+  %tr.table-header
     %td
       Product
     %td
