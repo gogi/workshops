@@ -1,31 +1,42 @@
 %p#notice= notice
 
 %p
-  %b Name:
-  = category.name
+  %b.h3.table_name Product: #{category.name}
 
-%table
-  %tr
+%table.table.table-hover
+  %tr.table-header
     %td
-      Product name
+      Product
+    %td
+      Description
+    %td
+      Price
     %td
       Average rate
+    %td
+      Reviews
+    %td
+
   - category.products.each do |product|
     %tr
       %td
-        = link_to product.title, category_product_path(category.id, product.id)
+        = product.title
+      %td
+        = product.description
+      %td
+        = product.price
       %td
         = product.average_rating
+      %td
+        %span.badge.glyphicon.glyphicon-pencil= "  #{product.reviews.count}"
+      %td
+        = link_to 'Add review!', category_product_path(category.id, product.id), class: 'btn btn-default'
 %br   
-%p
-  = link_to 'Check products with details!', category_products_path(category.id)
 
 %p
-  %h3 New product
+  %h3.table_name New product
   = render 'products/form'
-
+%br
 - if current_user.present? && current_user.admin?
-  = link_to 'Edit', edit_category_path(category)
-  \|
-
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+  = link_to 'Edit', edit_category_path(category), class: 'btn btn-default'
+= link_to 'Back', categories_path, class: 'btn btn-default'
