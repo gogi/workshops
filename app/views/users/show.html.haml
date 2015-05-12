@@ -19,7 +19,30 @@
     %td
       = user.email
     %td
-      = user.created_at
+      = user.created_at.strftime("%d-%m-%y")
+
+%table
+  Recent activities
+  %tr
+    %td
+      Product
+    %td
+      Review
+    %td
+      Rate
+    %td
+      Date
+  - last_reviews.each do |review|
+    %tr
+      %td
+        = review.product.title
+      %td
+        = review.content
+      %td
+        = review.rating
+      %td
+        = review.created_at.strftime("%d-%m-%y")
+
 
 %p
   = link_to 'All users', users_path, class: 'btn btn-default'
