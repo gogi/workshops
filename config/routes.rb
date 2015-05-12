@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users, only: [:show, :index], path: '/profiles'
 
   resources :categories do
     resources :products do
