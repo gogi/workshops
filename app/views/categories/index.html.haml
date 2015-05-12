@@ -1,8 +1,10 @@
-%h1 Listing categories
+%h2.table_name 
+  Categories
 
-%table.table
+%table.table.table-hover
   %tr
-    %th Name
+    %th Category name
+    %th Products
     %th
     %th
     %th
@@ -10,7 +12,9 @@
   - categories.each do |category|
     %tr
       %td= category.name
-      %td= link_to 'Show', category
+      %td
+        %span.badge.glyphicon.glyphicon-play= "  #{category.products.count}"
+      %td= link_to 'Show', category, class: 'btn btn-default'
       - if current_user.present? && current_user.admin?
         %td= link_to 'Edit', edit_category_path(category)
         %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
