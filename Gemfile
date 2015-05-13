@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'ffaker'
 gem 'konf'
+gem 'rails_12factor'
 
 group :development do
   gem 'spring'
