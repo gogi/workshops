@@ -1,8 +1,9 @@
-%table.table
+%table.table.table-responsive
   %tr
+    %td.icon
+      .glyphicon.glyphicon-star= " #{review.rating}"
     %td
       .blockquote
         %p= review.content
         .footer= "- #{review.author}"
-    %td
-      .glyphicon.glyphicon-star= " #{review.rating}"
+    
