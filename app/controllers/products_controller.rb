@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   expose_decorated(:reviews, ancestor: :product)
 
   before_action :authenticate_user!
-
+  before_action :check_owner, only: [:edit, :update]
   def index
   end
 
@@ -32,14 +32,10 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if current_user.id == product.user_id
-      if self.product.update(product_params)
-        redirect_to category_product_url(category, product), notice: 'Product was successfully updated.'
-      else
-        render action: 'edit'
-      end
+    if self.product.update(product_params)
+      redirect_to category_product_url(category, product), notice: 'Product was successfully updated.'
     else
-      redirect_to category_product_url(category, product), notice: "You are not allowed to update product #{product.title}."
+      render action: 'edit'
     end
   end
 
@@ -57,5 +53,11 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:title, :description, :price, :category_id, :user_id)
+  end
+
+  def check_owner
+    return unless current_user.id == product.user_id
+    flash[:error] = 'You are not allowed to edit this product.'
+    redirect_to category_product_url(category, product)
   end
 end
