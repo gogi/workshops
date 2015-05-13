@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
   end
 
   def check_owner
-    return unless current_user.id == product.user_id
+    return if current_user.id == product.user_id
     flash[:error] = 'You are not allowed to edit this product.'
     redirect_to category_product_url(category, product)
   end
