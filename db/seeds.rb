@@ -1,6 +1,6 @@
 # create users
 
-user1 = User.find_by(email: 'user1@example.com')
+user1 = User.find_by(email: 'user@example.com')
 unless user1.present?
   user1 = User.create(
     firstname: 'Gandalf',
@@ -11,7 +11,7 @@ unless user1.present?
   )
 end
 
-user2 = User.find_by(email: 'user2@example.com')
+user2 = User.find_by(email: 'user1@example.com')
 unless user2.present?
   user2 = User.create(
     firstname: 'Gollum',
@@ -22,7 +22,7 @@ unless user2.present?
   )
 end
 
-user3 = User.find_by(email: 'user3@example.com')
+user3 = User.find_by(email: 'user2@example.com')
 unless user3.present?
   user3 = User.create(
     firstname: 'Peregrin',
@@ -33,7 +33,7 @@ unless user3.present?
   )
 end
 
-user4 = User.find_by(email: 'user4@example.com')
+user4 = User.find_by(email: 'user3@example.com')
 unless user4.present?
   user4 = User.create(
     firstname: 'Meriadok',
@@ -44,7 +44,7 @@ unless user4.present?
   )
 end
 
-user5 = User.find_by(email: 'user5@example.com')
+user5 = User.find_by(email: 'user4@example.com')
 unless user5.present?
   user5 = User.create(
     firstname: 'Samwise',
@@ -55,7 +55,7 @@ unless user5.present?
   )
 end
 
-user6 = User.find_by(email: 'user6@example.com')
+user6 = User.find_by(email: 'user5@example.com')
 unless user6.present?
   user6 = User.create(
     firstname: 'Frodo',
