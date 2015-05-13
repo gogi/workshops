@@ -24,7 +24,7 @@
       %td
         = product.description
       %td
-        = product.price
+        = number_with_precision(product.price, precision: 2)
       %td
         - if product.average_rating > 0
           .glyphicon.glyphicon-star= " #{number_with_precision(product.average_rating, precision: 2)}"
