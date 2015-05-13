@@ -5,6 +5,8 @@ class ProductsController < ApplicationController
   expose(:review) { Review.new }
   expose_decorated(:reviews, ancestor: :product)
 
+  before_action :authenticate_user!
+
   def index
   end
 
