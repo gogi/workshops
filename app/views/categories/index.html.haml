@@ -11,7 +11,7 @@
     %tr
       %td= category.name
       %td
-        %span.badge.glyphicon.glyphicon-play= "  #{category.products.count}"
+        %span.badge.glyphicon.glyphicon-tags= "  #{category.products.count}"
       %td.btn.btn-group
         = link_to 'Show', category, class: 'btn btn-default'
         - if current_user.present? && current_user.admin?
