@@ -3,14 +3,16 @@
   background-color: #9096A5;
 }
 
-.navbar-default
+.navbar-default{
   .navbar-brand{
     color: #FBF2DF;
   }
+}
 
-.navbar-default 
-.navbar-nav > li > a{
-  color: #FBF2DF;
+.navbar-default{
+  .navbar-nav > li > a{
+    color: #FBF2DF;
+  }
 }
 
 .table_name{
@@ -33,6 +35,7 @@
 
 .table-header{
   background-color: #BDC4D2;
+  color: #2F416B;
 }
 
 .footer{
