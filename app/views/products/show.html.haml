@@ -16,7 +16,7 @@
     %td 
       %b Price
     %td
-      = product.price
+      = number_to_currency(product.price, precision: 2)
   %tr
     %td
     %td
