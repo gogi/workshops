@@ -26,7 +26,8 @@
       %td
         = product.price
       %td
-        .glyphicon.glyphicon-star= " #{product.average_rating}"
+        - if product.average_rating > 0
+          .glyphicon.glyphicon-star= " #{number_with_precision(product.average_rating, precision: 2)}"
       %td
         %span.badge.glyphicon.glyphicon-pencil= "  #{product.reviews.count}"
       %td
