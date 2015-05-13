@@ -133,6 +133,13 @@ if product.blank?
     user_id: user1.id,
     product_id: product.id
   )
+  Review.create(
+    content: 'Not good for bowling :/',
+    rating: '1',
+    created_at: '1212-04-14'.to_date,
+    user_id: user6.id,
+    product_id: product.id
+  )
 end
 
 product_params = {
@@ -158,6 +165,13 @@ if product.blank?
     rating: '4',
     created_at: '1200-04-14'.to_date,
     user_id: user3.id,
+    product_id: product.id
+  )
+  Review.create(
+    content: 'Once bought it and thought big red eye is following me...',
+    rating: '1',
+    created_at: '1215-04-14'.to_date,
+    user_id: user6.id,
     product_id: product.id
   )
 end
@@ -227,6 +241,44 @@ if product.blank?
     content: 'My uncle used to have similar! They realy are incredibly soft.',
     rating: '5',
     created_at: '1200-06-20'.to_date,
+    user_id: user6.id,
+    product_id: product.id
+  )
+end
+
+product_params = {
+  title: 'Yellow Fancy',
+  description: 'Small silk doilie on every occassion.',
+  category_id: category3.id,
+  user_id: user1.id,
+  price: '15.89'
+}
+product = Product.find_by(product_params)
+if product.blank?
+  product = Product.create(product_params)
+  Review.create(
+    content: 'Hide all mustard stains!',
+    rating: '5',
+    created_at: '1199-08-17'.to_date,
+    user_id: user6.id,
+    product_id: product.id
+  )
+end
+
+product_params = {
+  title: 'Blue cotton',
+  description: 'Oldfashioned but still popular',
+  category_id: category3.id,
+  user_id: user1.id,
+  price: '13.25'
+}
+product = Product.find_by(product_params)
+if product.blank?
+  product = Product.create(product_params)
+  Review.create(
+    content: 'I just love them all <3',
+    rating: '5',
+    created_at: '1206-12-16'.to_date,
     user_id: user6.id,
     product_id: product.id
   )
